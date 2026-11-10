@@ -1,0 +1,4 @@
+PASS: mvn -B javafx:run -Dlibrary.db=/tmp/library-native-smoke.db opened the Library Mini System GTK/JavaFX window on virtual X11.
+The database file was created at the configured path.
+The window tree and screenshot were captured before the smoke-test harness intentionally closed the process.
+This launch check does not claim a complete human-operated desktop acceptance test.

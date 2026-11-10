@@ -1,0 +1,247 @@
+{
+  "command": "mvn -B -Pui-tests clean verify",
+  "completed_at": "2026-11-10T19:48:01+03:00",
+  "environment": "Linux amd64, OpenJDK 21.0.13, Maven 3.9.9, JavaFX 21.0.5, Monocle headless software rendering",
+  "tests": 30,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "suites": [
+    {
+      "name": "com.library.JavaFxWorkflowTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "2.959"
+    },
+    {
+      "name": "com.library.LibraryIntegrationTest",
+      "tests": "20",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "4.24"
+    },
+    {
+      "name": "com.library.ModelTest",
+      "tests": "7",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.011"
+    }
+  ],
+  "cases": [
+    {
+      "suite": "JavaFxWorkflowTest",
+      "name": "overdueScreenShowsStoredDatesAndDays",
+      "expected": "Overdue table displays a stored loan three days past due.",
+      "status": "PASS",
+      "seconds": "1.3"
+    },
+    {
+      "suite": "JavaFxWorkflowTest",
+      "name": "applicationEntryPointShowsFirstRunSetup",
+      "expected": "Main.start opens a stage with the first-run account form.",
+      "status": "PASS",
+      "seconds": "0.118"
+    },
+    {
+      "suite": "JavaFxWorkflowTest",
+      "name": "fullLibrarianAndMemberWorkflow",
+      "expected": "Actual controls complete setup, catalog/member edits, issue/return, member history and deactivation.",
+      "status": "PASS",
+      "seconds": "1.458"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "invalidBorrowerAndDueDateDoNotChangeCopy",
+      "expected": "Missing/non-member borrowers and past due dates fail without changing stock.",
+      "status": "PASS",
+      "seconds": "0.509"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "inactiveCopyCannotBeIssuedAndHistoryIsKept",
+      "expected": "Borrowed copies cannot be deactivated; inactive copies cannot be issued; history remains.",
+      "status": "PASS",
+      "seconds": "0.176"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "failureDuringIssueRollsBackCopyUpdate",
+      "expected": "Injected insert failure leaves no loan and keeps the copy available.",
+      "status": "PASS",
+      "seconds": "0.166"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "memberCannotCallLibrarianServices",
+      "expected": "Direct member calls to protected service operations are rejected.",
+      "status": "PASS",
+      "seconds": "0.233"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "logoutRevokesSessionAndOtherAuthCannotReuseIt",
+      "expected": "Logged-out, null and foreign-service sessions cannot access services.",
+      "status": "PASS",
+      "seconds": "0.151"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "duplicateUsernameIsRejectedIgnoringCase",
+      "expected": "A duplicate username with different case is rejected.",
+      "status": "PASS",
+      "seconds": "0.207"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "overdueDatesAndDashboardCountsComeFromStorage",
+      "expected": "A two-day overdue fixture appears with correct overdue and availability counts.",
+      "status": "PASS",
+      "seconds": "0.167"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "searchOverloadsAndUpdates",
+      "expected": "All-field and field-specific searches work; edits affect results.",
+      "status": "PASS",
+      "seconds": "0.157"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "duplicateIsbnIsRejected",
+      "expected": "Duplicate ISBN registration fails.",
+      "status": "PASS",
+      "seconds": "0.155"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "invalidBookAndMemberInputsAreRejected",
+      "expected": "Missing fields and nonexistent update targets are rejected.",
+      "status": "PASS",
+      "seconds": "0.156"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "saltedPasswordHashesAndVerification",
+      "expected": "Same password has different salted hashes; only the correct password verifies.",
+      "status": "PASS",
+      "seconds": "0.356"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "successfulIssueAndReturnChangesBothRecords",
+      "expected": "Issue borrows the copy; return records the date and restores availability.",
+      "status": "PASS",
+      "seconds": "0.155"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "duplicateReturnIsRejected",
+      "expected": "The same loan cannot be returned twice.",
+      "status": "PASS",
+      "seconds": "0.162"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "secondIssueIsRejected",
+      "expected": "The same copy cannot have a second active loan.",
+      "status": "PASS",
+      "seconds": "0.158"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "memberSearchAndUpdate",
+      "expected": "Updated name is searchable and updated username can log in.",
+      "status": "PASS",
+      "seconds": "0.206"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "membersSeeOnlyTheirOwnHistory",
+      "expected": "Members see their own loans and cannot request another member history.",
+      "status": "PASS",
+      "seconds": "0.322"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "databasePreventsDuplicateActiveLoansAndForeignKeyViolations",
+      "expected": "Database rejects a second active loan and a nonexistent book reference.",
+      "status": "PASS",
+      "seconds": "0.158"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "credentialsAndFirstRunSetup",
+      "expected": "Valid case-insensitive username works; bad credentials and repeated setup fail.",
+      "status": "PASS",
+      "seconds": "0.307"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "failureDuringReturnRollsBackLoanUpdate",
+      "expected": "Injected copy-update failure leaves the loan active and copy borrowed.",
+      "status": "PASS",
+      "seconds": "0.154"
+    },
+    {
+      "suite": "LibraryIntegrationTest",
+      "name": "recordsSurviveReopeningDatabase",
+      "expected": "New repository instance reloads accounts, books, copy state and loans.",
+      "status": "PASS",
+      "seconds": "0.158"
+    },
+    {
+      "suite": "ModelTest",
+      "name": "requiredFieldsAreRejected",
+      "expected": "A blank title is rejected.",
+      "status": "PASS",
+      "seconds": "0.001"
+    },
+    {
+      "suite": "ModelTest",
+      "name": "invalidIdentityIsRejected",
+      "expected": "A zero record ID is rejected.",
+      "status": "PASS",
+      "seconds": "0.001"
+    },
+    {
+      "suite": "ModelTest",
+      "name": "polymorphismUsesConcreteRole",
+      "expected": "Parent references return the concrete account roles; invalid names are rejected.",
+      "status": "PASS",
+      "seconds": "0.001"
+    },
+    {
+      "suite": "ModelTest",
+      "name": "overdueBoundaryAndReturnedLoan",
+      "expected": "Due today is not overdue; one day late is overdue; a return closes the loan.",
+      "status": "PASS",
+      "seconds": "0.003"
+    },
+    {
+      "suite": "ModelTest",
+      "name": "bookConstructorsAndValidatedUpdates",
+      "expected": "Default category and valid edits work; an invalid edit preserves earlier details.",
+      "status": "PASS",
+      "seconds": "0.001"
+    },
+    {
+      "suite": "ModelTest",
+      "name": "invalidLoanDatesAreRejected",
+      "expected": "Invalid due, past return and future return dates are rejected.",
+      "status": "PASS",
+      "seconds": "0.001"
+    },
+    {
+      "suite": "ModelTest",
+      "name": "copyStateTransitionsAreControlled",
+      "expected": "Borrowed/inactive copies reject invalid transitions.",
+      "status": "PASS",
+      "seconds": "0.001"
+    }
+  ]
+}
