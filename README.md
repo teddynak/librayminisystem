@@ -37,13 +37,13 @@ The packaged JAR from `mvn package` contains the application classes and resourc
 
 ## Study and submission
 
-- [User manual](docs/user-manual.md)
-- [Technical documentation](docs/technical-documentation.md)
+- User manual: [Markdown](docs/user-manual.md) | [Word](docs/user-manual.docx)
+- Technical documentation: [Markdown](docs/technical-documentation.md) | [Word](docs/technical-documentation.docx)
 - [OOP explanations and defense examples](docs/oop-explanations.md)
-- [Implemented UML and design changes](docs/system-design.md)
+- Implemented UML and design changes: [Markdown](docs/system-design.md) | [Word](docs/system-design.docx)
 - [Test cases and actual results](docs/test-results.md)
 - [Manual testing checklist](docs/manual-test-checklist.md)
-- [Final project report](docs/final-project-report.md)
+- Final project report: [Markdown](docs/final-project-report.md) | [Word](docs/final-project-report.docx)
 - [Presentation and recording guide](docs/presentation-guide.md)
 - [Submission checklist](docs/submission-checklist.md)
 - [Development stages](docs/development-stages.md)
