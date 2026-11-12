@@ -7,7 +7,7 @@ A small Java 21 and JavaFX desktop assignment for one library. SQLite stores acc
 Install JDK 21 and Maven 3.9 or newer, open a terminal in this project, then run:
 
 ```bash
-mvn clean javafx:run
+mvn clean javafx:run.
 ```
 
 On the first launch, create your librarian account. There is no permanent default password. Register members from the Members tab. Both roles log in through the same screen.
