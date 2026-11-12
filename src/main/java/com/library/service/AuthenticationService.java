@@ -59,9 +59,9 @@ public final class AuthenticationService {
                         "SELECT * FROM users WHERE username=? AND active=1",
                         LibraryRepository::user,
                         u));
-    if (found.isEmpty() || !Passwords.verify(password, found.getFirst().getPasswordHash()))
+    if (found.isEmpty() || !Passwords.verify(password, found.get(0).getPasswordHash()))
       throw new LibraryException("Incorrect username or password.");
-    Session session = new Session(found.getFirst().getUserId());
+    Session session = new Session(found.get(0).getUserId());
     sessions.add(session);
     return session;
   }

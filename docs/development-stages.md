@@ -31,3 +31,7 @@ Implemented JavaFX screens with no placeholder actions. Added a headless JavaFX 
 ## Stage 8 Final verification and presentation preparation
 
 Updated implemented UML, technical documentation, user manual, OOP explanations, test evidence, final report and presentation guide. Verified the Maven JavaFX launch on virtual X11 and captured the native window. Exact executed counts and artifacts are listed in test-results.md. Native desktop checks, the student's recording and oral defense remain separate activities; no personal recording or defense is claimed as completed.
+
+## Java 17 compatibility update
+
+The application now targets Java 17 to match the student workstation. List.getFirst calls were replaced with get(0), the Maven release and GitHub workflow target Java 17, and the headless test platform uses a Java 17 compatible Monocle build. JavaFX 21.0.5 remains in use because it supports Java 17. Fresh Java 17 verification results are recorded in test-results.md. Original assignment and proposal documents remain historical references.

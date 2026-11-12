@@ -1,5 +1,17 @@
 # Test cases and actual results
 
+## Current Java 17 verification — 12 November 2026
+
+Compiled and tested using OpenJDK **17.0.19**, Maven 3.9.9 and the bundled Maven Wrapper on Linux amd64. JavaFX remains 21.0.5 (compatible with JDK 17); headless UI tests use Monocle 17.0.10.
+
+Command: `./mvnw -B -Pui-tests clean verify` with temporary environment-specific proxy settings. Completed at 12:53 EAT. **BUILD SUCCESS: 30 tests, zero failures, zero errors, zero skipped** (7 model, 20 integration, 3 JavaFX workflow tests). The same cases listed below were rerun. OopDemo also completed successfully.
+
+A separate native JavaFX launch under virtual X11 opened the first-run setup form and created a temporary SQLite database; the smoke-test harness then closed the process. Windows execution has not been tested in this Linux environment. On Windows use `.\mvnw.cmd clean javafx:run`; no separate Maven installation is required. The first wrapper run requires internet access.
+
+Evidence: [build log](evidence/java17/maven-verify.log), [suite summary](evidence/java17/test-summary.json), [wrapper version](evidence/java17/wrapper-version.txt), [OOP output](evidence/java17/oop-demo.txt), [native launch screenshot](evidence/java17/08-native-first-run.png), [native launch log](evidence/java17/native-launch.log). The Java 17 evidence directory also includes XML reports and eight screenshots captured by the UI tests.
+
+## Previous Java 21 verification (historical)
+
 Verification completed on 10 November 2026 at 19:48 EAT. The source was compiled and tested with OpenJDK 21.0.13 and Maven 3.9.9 on Linux amd64. JavaFX 21.0.5 used Monocle headless software rendering for the UI scenarios.
 
 Command executed: `mvn -B -Pui-tests clean verify` (the environment used a temporary Maven proxy configuration to obtain dependencies).

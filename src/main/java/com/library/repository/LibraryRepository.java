@@ -46,7 +46,7 @@ public final class LibraryRepository {
 
   public static long insert(Connection c, String sql, Object... args) throws SQLException {
     execute(c, sql, args);
-    return query(c, "SELECT last_insert_rowid()", r -> r.getLong(1)).getFirst();
+    return query(c, "SELECT last_insert_rowid()", r -> r.getLong(1)).get(0);
   }
 
   private static void bind(PreparedStatement p, Object[] args) throws SQLException {
@@ -97,7 +97,7 @@ public final class LibraryRepository {
 
   public static <T> T one(List<T> rows) {
     if (rows.isEmpty()) throw new LibraryException("The selected record was not found.");
-    return rows.getFirst();
+    return rows.get(0);
   }
 
   public List<User> users() {

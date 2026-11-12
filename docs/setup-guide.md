@@ -2,19 +2,34 @@
 
 ## Requirements
 
-Use JDK 21, Maven 3.9 or newer and a graphical desktop. Check `java -version`, `javac -version` and `mvn -version`. Maven must report Java 21. On Ubuntu, install a JDK rather than only a JRE. Install your distribution's GTK 3 runtime if JavaFX reports a missing GTK library.
+Use JDK 17 and a graphical desktop. The included Maven Wrapper supplies Maven 3.9.9; a separate Maven installation is optional. Check `java -version`, `javac -version` and `mvn -version`. Maven must report Java 17. On Ubuntu, install a JDK rather than only a JRE. Install your distribution's GTK 3 runtime if JavaFX reports a missing GTK library.
 
 ## Obtain and launch
+
+Open the project folder containing `pom.xml`. On Windows PowerShell, use the bundled Maven Wrapper:
+
+```powershell
+java -version
+javac -version
+.\mvnw.cmd -version
+.\mvnw.cmd clean javafx:run
+```
+
+Both Java commands should report 17, and the wrapper version output must report Java 17. If `JAVA_HOME` points to a different JDK, set it to the installed JDK 17 folder, then restart VS Code. The wrapper solves the earlier “mvn is not recognized” error without a separate Maven installation. It needs internet access on first use to download Maven and dependencies.
+
+For Linux or macOS:
 
 ```bash
 git clone https://github.com/teddynak/librayminisystem.git
 cd librayminisystem
-mvn clean javafx:run
+./mvnw clean javafx:run
 ```
 
-Authenticate to GitHub with your own account when cloning this private repository. In VS Code install Java support and open the project folder. In IntelliJ open `pom.xml` as a Maven project and select JDK 21. The terminal commands work in either editor.
+An existing Maven installation can still use `mvn clean javafx:run`. Authenticate with your GitHub account when cloning this private repository. In VS Code open the project folder and select JDK 17 for the project. In IntelliJ open `pom.xml` as a Maven project and select JDK 17.
 
-Internet access is needed for the initial Maven dependency download. The application itself makes no network requests. Wait for the JavaFX window, then enter a full name, username and password of 8 to 128 characters to create the initial librarian. Later launches show the normal login form.
+The application itself makes no network requests. The first launch asks for a full name, username and a password of 8 to 128 characters to create the initial librarian. Later launches show the normal login form. Keep your existing database; this compatibility update does not change its schema.
+
+JavaFX 21.0.5 supports Java 17 and remains unchanged. The headless test-only Monocle dependency uses version 17.0.10. The original development master prompt records the earlier Java 21 plan; the current Maven configuration and this guide describe the supported Java 17 build.
 
 ## Data location
 
@@ -31,16 +46,17 @@ Close the application before copying the database as a backup. Restore by copyin
 ## Build and test
 
 ```bash
-mvn clean test
-mvn -Pui-tests clean verify
-mvn clean javafx:run
+./mvnw clean test
+./mvnw -Pui-tests clean verify
+./mvnw clean javafx:run
 ```
 
-The first command runs the 27 normal tests. The UI profile adds three JavaFX test scenarios and produces screenshots. A build success does not replace checking the native window on your own computer.
+On Windows replace `./mvnw` with `.\mvnw.cmd`. The first command runs the 27 normal tests. The UI profile adds three JavaFX test scenarios and produces screenshots. A build success does not replace checking the native window on your own computer.
 
 ## Troubleshooting
 
-- Java release errors: set the editor JDK and `JAVA_HOME` to a complete JDK 21.
+- Java release errors: set the editor JDK and `JAVA_HOME` to a complete JDK 17.
+- Maven command not recognized: use `.\mvnw.cmd` on Windows or `./mvnw` on Linux instead.
 - Dependency resolution errors: check internet access and Maven proxy configuration, then retry.
 - Missing display: launch from your desktop session; use the UI test profile for headless tests.
 - Storage errors: check write permissions and avoid running multiple instances against the same database.

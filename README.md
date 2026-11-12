@@ -1,10 +1,16 @@
 # Library Mini System
 
-A small Java 21 and JavaFX desktop assignment for one library. SQLite stores accounts, book titles, individual copies and loan history locally. No external server or paid service is required.
+A small Java 17 and JavaFX desktop assignment for one library. SQLite stores accounts, book titles, individual copies and loan history locally. No external server or paid service is required.
 
 ## Run
 
-Install JDK 21 and Maven 3.9 or newer, open a terminal in this project, then run:
+Install JDK 17 and open a terminal in this project. On Windows PowerShell run:
+
+```powershell
+.\mvnw.cmd clean javafx:run
+```
+
+The included Maven Wrapper downloads Maven 3.9.9 on first use; a separate Maven installation is not needed. On Linux or macOS use `./mvnw clean javafx:run`. If Maven is already installed, the original command also works:
 
 ```bash
 mvn clean javafx:run
@@ -37,16 +43,18 @@ The packaged JAR from `mvn package` contains the application classes and resourc
 
 ## Study and submission
 
-- User manual: [Markdown](docs/user-manual.md) | [Word](docs/user-manual.docx)
-- Technical documentation: [Markdown](docs/technical-documentation.md) | [Word](docs/technical-documentation.docx)
+- [User manual (Word)](docs/user-manual.docx)
+- [Technical documentation (Word)](docs/technical-documentation.docx)
 - [OOP explanations and defense examples](docs/oop-explanations.md)
-- Implemented UML and design changes: [Markdown](docs/system-design.md) | [Word](docs/system-design.docx)
+- [Implemented UML and design changes (Word)](docs/system-design.docx)
 - [Test cases and actual results](docs/test-results.md)
 - [Manual testing checklist](docs/manual-test-checklist.md)
-- Final project report: [Markdown](docs/final-project-report.md) | [Word](docs/final-project-report.docx)
+- [Final project report (Word)](docs/final-project-report.docx)
 - [Presentation and recording guide](docs/presentation-guide.md)
 - [Submission checklist](docs/submission-checklist.md)
 - [Development stages](docs/development-stages.md)
+
+The application targets Java 17; JavaFX keeps its independent version number 21.0.5. This does not require JDK 21. The original master prompt is retained as a historical reference.
 
 Original assignment and planning documents are preserved under `docs/reference/`. The implemented design document describes changes from the original UML.
 

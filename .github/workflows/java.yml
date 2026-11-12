@@ -12,10 +12,10 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: '17'
           cache: maven
       - name: Model, database and headless JavaFX tests
-        run: mvn -B -Pui-tests clean verify
+        run: ./mvnw -B -Pui-tests clean verify
       - name: Preserve test reports and rendered screenshots
         if: always()
         uses: actions/upload-artifact@v4

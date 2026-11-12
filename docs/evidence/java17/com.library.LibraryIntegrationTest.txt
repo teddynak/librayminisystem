@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.library.LibraryIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.432 s -- in com.library.LibraryIntegrationTest

@@ -90,12 +90,12 @@ class LibraryIntegrationTest {
   @Test
   void successfulIssueAndReturnChangesBothRecords() {
     Loan loan = issue();
-    assertEquals(CopyStatus.BORROWED, books.copies().getFirst().getStatus());
-    assertTrue(loans.visibleLoans().getFirst().isActive());
+    assertEquals(CopyStatus.BORROWED, books.copies().get(0).getStatus());
+    assertTrue(loans.visibleLoans().get(0).isActive());
     loans.returnCopy(loan.getLoanId(), LocalDate.now());
-    assertEquals(CopyStatus.AVAILABLE, books.copies().getFirst().getStatus());
-    assertEquals(LoanStatus.RETURNED, loans.visibleLoans().getFirst().getStatus());
-    assertNotNull(loans.visibleLoans().getFirst().getReturnDate());
+    assertEquals(CopyStatus.AVAILABLE, books.copies().get(0).getStatus());
+    assertEquals(LoanStatus.RETURNED, loans.visibleLoans().get(0).getStatus());
+    assertNotNull(loans.visibleLoans().get(0).getReturnDate());
   }
 
   @Test
@@ -122,7 +122,7 @@ class LibraryIntegrationTest {
     assertThrows(
         LibraryException.class,
         () -> loans.issueCopy(member.getUserId(), copy.getCopyId(), LocalDate.now().minusDays(1)));
-    assertTrue(books.copies().getFirst().isAvailable());
+    assertTrue(books.copies().get(0).isAvailable());
     assertTrue(loans.visibleLoans().isEmpty());
   }
 
@@ -184,7 +184,7 @@ class LibraryIntegrationTest {
     LibraryRepository reopened = new LibraryRepository(new Database(directory.resolve("test.db")));
     assertEquals(2, reopened.users().size());
     assertEquals(1, reopened.books().size());
-    assertEquals(CopyStatus.BORROWED, reopened.copies().getFirst().getStatus());
+    assertEquals(CopyStatus.BORROWED, reopened.copies().get(0).getStatus());
     assertEquals(1, reopened.loans().size());
   }
 
@@ -205,7 +205,7 @@ class LibraryIntegrationTest {
                   LocalDate.now().minusDays(2).toString());
               return null;
             });
-    assertEquals(2, loans.findOverdue(LocalDate.now()).getFirst().overdueDays(LocalDate.now()));
+    assertEquals(2, loans.findOverdue(LocalDate.now()).get(0).overdueDays(LocalDate.now()));
     assertEquals(1L, books.summary().get("Overdue loans"));
     assertEquals(0L, books.summary().get("Available copies"));
   }
@@ -222,7 +222,7 @@ class LibraryIntegrationTest {
               return null;
             });
     assertThrows(LibraryException.class, this::issue);
-    assertTrue(books.copies().getFirst().isAvailable());
+    assertTrue(books.copies().get(0).isAvailable());
     assertTrue(loans.visibleLoans().isEmpty());
   }
 
@@ -239,8 +239,8 @@ class LibraryIntegrationTest {
               return null;
             });
     assertThrows(LibraryException.class, () -> loans.returnCopy(loan.getLoanId(), LocalDate.now()));
-    assertTrue(loans.visibleLoans().getFirst().isActive());
-    assertEquals(CopyStatus.BORROWED, books.copies().getFirst().getStatus());
+    assertTrue(loans.visibleLoans().get(0).isActive());
+    assertEquals(CopyStatus.BORROWED, books.copies().get(0).getStatus());
   }
 
   @Test

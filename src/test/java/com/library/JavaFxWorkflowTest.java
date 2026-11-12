@@ -104,14 +104,14 @@ class JavaFxWorkflowTest {
             combo(scene, "issue-copy").getSelectionModel().selectFirst();
             click(scene, "loan-issue");
             assertEquals(1, repo.loans().size());
-            assertEquals(CopyStatus.BORROWED, repo.copies().getFirst().getStatus());
+            assertEquals(CopyStatus.BORROWED, repo.copies().get(0).getStatus());
             snapshot(scene, "04-issued-loan");
             click(scene, "loans-refresh");
             TableView<Loan> loans = table(scene, "loans-table");
             loans.getSelectionModel().selectFirst();
             click(scene, "loan-return");
-            assertFalse(repo.loans().getFirst().isActive());
-            assertEquals(CopyStatus.AVAILABLE, repo.copies().getFirst().getStatus());
+            assertFalse(repo.loans().get(0).isActive());
+            assertEquals(CopyStatus.AVAILABLE, repo.copies().get(0).getStatus());
             snapshot(scene, "05-returned-loan");
             tab(scene, "Overdue loans");
             assertEquals(0, table(scene, "overdue-table").getItems().size());
@@ -134,7 +134,7 @@ class JavaFxWorkflowTest {
             table(scene, "books-table").getSelectionModel().selectFirst();
             table(scene, "copies-table").getSelectionModel().selectFirst();
             click(scene, "copy-deactivate");
-            assertEquals(CopyStatus.INACTIVE, repo.copies().getFirst().getStatus());
+            assertEquals(CopyStatus.INACTIVE, repo.copies().get(0).getStatus());
             // Reopen storage and controller to verify records survive a new application session.
             LibraryRepository reopened =
                 new LibraryRepository(new Database(directory.resolve("ui.db")));
@@ -215,7 +215,7 @@ class JavaFxWorkflowTest {
             tab(scene, "Overdue loans");
             TableView<Loan> overdue = table(scene, "overdue-table");
             assertEquals(1, overdue.getItems().size());
-            assertEquals(3, overdue.getItems().getFirst().overdueDays(LocalDate.now()));
+            assertEquals(3, overdue.getItems().get(0).overdueDays(LocalDate.now()));
             snapshot(scene, "07-overdue-loans");
             click(scene, "loans-refresh");
           } finally {
